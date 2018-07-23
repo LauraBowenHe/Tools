@@ -1,4 +1,4 @@
-# just pasted somethere in your script, to help record changes when you tuning your program.
+# just pasted somethere in your script, to help the time and the changes of the script.
 from time import gmtime, strftime
 
 start_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
