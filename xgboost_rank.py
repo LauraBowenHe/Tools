@@ -36,9 +36,9 @@ print(train_y.shape)
 
 print("train model...")
 params = {'base_score':0.5,
-	      'reg_alpha': 0.05, 
-	      'colsample_bytree': 0.8, 
-	      'learning_rate': 0.1, 
+	  'reg_alpha': 0.05, 
+	  'colsample_bytree': 0.8, 
+	  'learning_rate': 0.1, 
           'alpha': 0, 
           'gamma': 0,
           'max_depth': 8, 
