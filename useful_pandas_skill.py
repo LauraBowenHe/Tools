@@ -36,3 +36,8 @@ df.sample(frac=1)
 #------------------- parquet for faster save than csv  ------------------------
 ### (pip install pyarrow)
 df = pd.read_parquet('../data/spn_nlp_feats.parquet.gzip', engine='pyarrow')
+
+#------------------- modify column by certain condition -----------------------
+df.loc[((df[col]==1) & (df[col1]==1)), 'prob'] = 1
+
+
