@@ -28,6 +28,8 @@ def pairwise_dis(sample3, sample4):
     
     
 ### multiple output, multiple metrics
-model.compile(loss=[custom_loss1, custom_loss2],
+model.compile(loss=[custom_loss],
                   optimizer=sgd,
-                  metrics={'output': 'binary_accuracy', 'output2':'categorical_accuracy'})
+                  metrics={'output2':'categorical_accuracy'})
+
+### 
