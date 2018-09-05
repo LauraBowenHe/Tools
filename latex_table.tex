@@ -1,4 +1,4 @@
-%File: formatting-instruction.tex
+% Multiple latex table. 
 \documentclass[letterpaper]{article}
 \usepackage{aaai}
 \usepackage{times}
@@ -6,6 +6,8 @@
 \usepackage{courier}
 \usepackage{multirow}
 \usepackage{adjustbox}
+\usepackage{pdfpages}
+\usepackage{array}
 \frenchspacing
 \setlength{\pdfpagewidth}{8.5in}
 \setlength{\pdfpageheight}{11in}
@@ -26,7 +28,7 @@ Palo Alto, California 94303\\
 \maketitle
 
 
-
+%跨双栏的表，宽度和页面一致，但字体不好控制
 \begin{table*}[htbp]
 \begin{adjustbox}{width=\textwidth}
 \centering
@@ -53,5 +55,68 @@ Palo Alto, California 94303\\
 \caption{Experiment Results}
 \end{table*}
 
+% 跨双栏的表，可以控制列的宽度，可以控制列之间的线
+\begin{table*}[htbp]
+\normalsize
+\centering
+\begin{adjustbox}{width=160mm}
+\centering
+\begin{tabular}{p{20mm}<{\centering}|p{20mm}<{\centering}p{20mm}<{\centering}p{15mm}<{\centering}p{20mm}<{\centering}p{20mm}<{\centering}p{30mm}<{\centering}p{15mm}<{\centering}}
+\hline
+\ Data  & Metrics   & Origin. &RNN & LSTM
+      						 & CNN & XGBoost & improv. \\\hline
+\multirow{3}*{dataset1}
+      & P@1 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & P@3 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & P@5 & 24.37   & 16.18 & 19.62 & 31.98 & 1 & 8.98\\\hline
+\multirow{3}*{dataset2}
+      & P@1 & 7.156   & 25.607 & 19.62 & 189.793 & 286.354 & 8.98\\
+      & P@3 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & P@5 & 5.960   & 7.043 & 19.62 & 2.780 & 1 & 8.98\\\hline
+\multirow{4}*{dataset3}
+      & nDCG@1 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & nDCG@3 & 7.156   & 25.607 & 19.62 & 189.793 & 286.354 & 8.98\\
+      & nDCG@5 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & nDCG@10 & 54.41   & 30.29 & 19.62 & 25.54 & 164.16 & 8.98\\\hline
+\multirow{4}*{dataset4}
+      & nDCG@1 & 7.156   & 25.607 & 19.62 & 189.793 & 286.354 & 8.98\\
+      & nDCG@3 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & nDCG@5 & 24.37   & 16.18 & 19.62 & 19.62 & 8.98 & 8.98\\
+      & nDCG@10 & 54.41   & 30.29 & 25.54 & 164.16 & 19.62 & 8.98\\\hline
+  \end{tabular}
+  \label{tab:data}
+\end{adjustbox}
+\caption{Experiment Results, compared with self}
+\end{table*}
+
+% 双栏页面的单栏表格
+\begin{table}[htbp]
+\tiny
+\begin{adjustbox}{width=\columnwidth}
+\centering
+  \begin{tabular}{c|cccc}
+    \hline
+\   & Queries   & Items & Rel. & Feats. \\\hline
+\multirow{1}*{Dataset1}
+      & 1
+ & 2   & 2 & 1 \\
+\multirow{1}*{Dataset2}
+      & 1  & 2 & 2 & 1\\
+\multirow{1}*{Dataset3}
+      & 1  & 2 & 5 & 1\\
+\multirow{1}*{Dataset4}
+      & 1 & 2  & 5 &  1\\\hline
+  \end{tabular}
+  \label{tab:data}
+\end{adjustbox}
+\caption{Dataset}
+\end{table
+
+% 插入跨栏的图
+\begin{figure*}
+\centering
+\includegraphics[width=16cm]{figure-0mm.pdf} 
+\caption{Model}
+\end{figure*}
 
 \end{document}
